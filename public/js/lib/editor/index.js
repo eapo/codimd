@@ -33,12 +33,6 @@ export default class Editor {
           return CodeMirror.Pass
         }
       },
-      'Cmd-S': function () {
-        return false
-      },
-      'Ctrl-S': function () {
-        return false
-      },
       Enter: 'newlineAndIndentContinueMarkdownList',
       Tab: function (cm) {
         var tab = '\t'
@@ -124,6 +118,21 @@ export default class Editor {
       },
       'Ctrl-=': cm => {
         utils.wrapTextWith(this.editor, cm, '=')
+      },
+      'Ctrl-B': cm => {
+        utils.wrapTextWith(this.editor, cm, '**')
+      },
+      'Ctrl-S': cm => {
+        utils.wrapTextWith(this.editor, cm, '~')
+      },
+      'Ctrl-Up': cm => {
+        utils.wrapTextWith(this.editor, cm, '^')
+      },
+      'Ctrl-U': cm => {
+        utils.wrapTextWith(this.editor, cm, '+')
+      },
+      'Ctrl-=': cm => {
+        utils.wrapTextWith(this.editor, cm, '==')
       },
       'Shift-Ctrl-Backspace': cm => {
         utils.wrapTextWith(this.editor, cm, 'Backspace')
